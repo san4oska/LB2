@@ -3,107 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Лабораторна робота з CSS</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Підключення зовнішнього CSS -->
+    <title>Лабораторна робота №2</title>
+    
+    <!-- Підключення зовнішнього CSS-файлу -->
+    <link rel="stylesheet" href="styles.css">
+    
     <style>
-        /* Внутрішні стилі */
+        /* Внутрішній CSS */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f0f0f0;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
 
-        .flex-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            width: 300px;
-            height: 300px;
-            background-color: white;
-            margin: 0 auto;
-        }
-        
-        .flex-item {
-            width: 80px;
-            height: 80px;
-            background-color: navy;
-            margin: 5px;
-        }
-        
-        .flex-item.larger {
-            width: 80px;
-            height: 160px;
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
         }
 
-        #special-element {
-            position: relative;
-            top: 700px;
-            left: 20px;
-            background-color: #ffeb3b;
-            padding: 10px;
-        }
-
-        .nav {
-            float: left;
-            width: 100%;
+        /* Стилі для навігації */
+        nav {
             background-color: #333;
             overflow: hidden;
         }
-
-        .nav a {
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav li {
             float: left;
+        }
+        nav a {
             display: block;
             color: white;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
         }
-
-        .nav a:hover {
+        nav a:hover {
             background-color: #ddd;
             color: black;
         }
 
-        ul.custom-list {
+        /* Flexbox для контейнера з блоками */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            width: 300px;
+            height: 300px;
+            margin: 20px;
+        }
+
+        .top-row, .bottom-row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .box {
+            width: 80px;
+            height: 80px;
+            margin: 10px;
+            background-color: #0f28b3;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+        }
+        
+        .box-big {
+            width: 80px;
+            height: 160px;
+            margin: 10px;
+            background-color: #0f28b3;
+            text-align: center;
+            line-height: 200px;
+            color: white;
+        }
+
+        /* Список з власним маркером */
+        .custom-list {
             list-style-type: none;
             padding: 0;
         }
-
-        ul.custom-list li {
-            background: url('marker.png') no-repeat left center;
+        .custom-list li {
+            position: relative;
             padding-left: 20px;
+        }
+        .custom-list li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #7700ff;
+        }
+
+        /* Абсолютне позиціонування */
+        #absolute-position {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            background-color: #FF5722;
+            color: white;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Лабораторна робота №2</h1>
+    </header>
 
-    <h1 style="color: #2c3e50; text-align: center;">Лабораторна робота з CSS</h1>
+    <!-- Меню з використанням float -->
+    <nav>
+        <ul>
+            <li><a href="#saction1">Оформлений текст</a></li>
+            <li><a href="#saction2">Список</a></li>
+            <li><a href="#saction3">Таблиця</a></li>
+            <li><a href="#saction4">Голосування</a></li>
+        </ul>
+    </nav>
 
-    <div class="nav">
-        <a href="#selection1">Список</a>
-        <a href="#selection2">Контейнер</a>
-        <a href="#special-element">Елемент</a>
-    </div>
-
-    <div id="special-element">Цей елемент має відносне позиціонування.</div>
-
-    <h2 id="selection1">Список з власним маркером</h2>
-    <ul class="custom-list">
-        <li>Перше завдання</li>
-        <li>Друге завдання</li>
-        <li>Третє завдання</li>
-    </ul>
-
-    <h2 id="selection2">Контейнер з Flexbox</h2>
-    <div class="flex-container">
-        <div class="flex-item"></div>
-        <div class="flex-item larger"></div>
-        <div class="flex-item"></div>
-        <div class="flex-item"></div>
-        <div class="flex-item"></div>
-    </div>
-
+    <main>
+        <h2 id="saction1">Оформлений текст</h2>
+        <!-- Inline стиль -->
+        <p style="color: #4aad08;">Для будь-якого натурального числа n&gt;2, рівняння <i>a<sup>n</sup> + 6<sup>n</sup></i> = c<sup>n</sup> <b>не має розв'язків</b> у ненульових цілих числах a, b, c.</p>
+        
+        <!-- Flexbox контейнер для блоків -->
+        <div class="container">
+            <div class="top-row">
+                <div class="box"></div>
+                <div class="box-big"></div>
+                <div class="box"></div>
+            </div>
+            <div class="bottom-row">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+        </div>
+        
+        <h2 id="saction2">Список</h2>
+        <!-- Список з кастомним маркером -->
+        <ul class="custom-list">
+            <li>Факультет комп’ютерних наук</li>
+            <li>Факультет комп’ютерної інженерії та управління</li>
+            <li>Факультет автоматики і комп’ютеризованих технологій</li>
+        </ul>
+        
+        <!-- Абсолютне позиціонування елемента -->
+        <div id="absolute-position">Абсолютне позиціонування</div>
+        
+        <h2 id="saction3">Таблиця з даними курсу валют</h2>
+        <table border="2">
+            <tr>
+                <th>Валюта</th>
+                <th>Курс</th>
+            </tr>
+            <tr>
+                <td>USD</td>
+                <td>41.10</td>
+            </tr>
+            <tr>
+                <td>EUR</td>
+                <td>44.50</td>
+            </tr>
+            <tr>
+                <td>PLN</td>
+                <td>10.10</td>
+            </tr>
+            <tr>
+                <td>GBP</td>
+                <td>52.91</td>
+            </tr>
+            <tr>
+                <td>CHF</td>
+                <td>46.85</td>
+            </tr>
+        </table>
+        
+        <h2 id="saction4">Голосування</h2>
+        <form>
+            <label for="vote">Ваш вибір:</label><br>
+            <input type="radio" id="option1" name="vote" value="option1">
+            <label for="option1">Факультет комп’ютерних наук</label><br>
+            <input type="radio" id="option2" name="vote" value="option2">
+            <label for="option2">Факультет комп’ютерної інженерії та управління</label><br>
+            <input type="radio" id="option3" name="vote" value="option3">
+            <label for="option3">Факультет автоматики і комп’ютеризованих технологій</label><br>
+            <input type="submit" value="Голосувати">
+        </form>
+    </main>
+    
+    <footer style="text-align: center;">
+        <p>© 2024 Лабораторна робота.</p>
+    </footer>
 </body>
 </html>
